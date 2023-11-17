@@ -1,0 +1,25 @@
+{
+  "TASMSZOI": [
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 3
+        },
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 2
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 1
+        },
+        {
+          "dateEntreeVigueur": "30/09/2013",
+          "tarif": 1
+        }
+      ]
+    }
+  ]
+}

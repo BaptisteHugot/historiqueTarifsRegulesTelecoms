@@ -1,0 +1,83 @@
+{
+  "TAVoixFixe": [
+    {
+      "operateur": "France Telecom - Orange",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 0.45
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 0.425
+        },
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 0.4
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 0.3
+        }
+      ]
+    },
+    {
+      "operateur": "Opérateurs alternatifs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 0.9
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 0.7
+        },
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 0.5
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 0.3
+        }
+      ]
+    },
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 0.3
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 0.15
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 0.08
+        },
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 0.079
+        },
+        {
+          "dateEntreeVigueur": "01/01/2016",
+          "tarif": 0.078
+        },
+        {
+          "dateEntreeVigueur": "01/01/2017",
+          "tarif": 0.077
+        },
+        {
+          "dateEntreeVigueur": "01/07/2021",
+          "tarif": 0.07
+        },
+        {
+          "dateEntreeVigueur": "31/12/2025",
+          "tarif": 0.07
+        }
+      ]
+    }
+  ]
+}

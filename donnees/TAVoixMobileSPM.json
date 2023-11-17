@@ -1,0 +1,54 @@
+{
+  "TAVoixMobileSPM": [
+    {
+      "operateur": "SPM Telecom",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/04/2005",
+          "tarif": 24.67
+        },
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 19.212
+        },
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 16
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 14
+        },
+        {
+          "dateEntreeVigueur": "01/01/2012",
+          "tarif": 12
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 10
+        },
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 10
+        }
+      ]
+    },
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 10
+        },
+        {
+          "dateEntreeVigueur": "01/06/2022",
+          "tarif": 0.08
+        },
+        {
+          "dateEntreeVigueur": "31/12/2025",
+          "tarif": 0.08
+        }
+      ]
+    }
+  ]
+}

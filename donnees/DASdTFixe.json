@@ -1,0 +1,62 @@
+{
+  "DASdTFixe": [
+    {
+      "operateur": "CAA",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2006",
+          "tarif": 0.5734
+        },
+        {
+          "dateEntreeVigueur": "01/07/2006",
+          "tarif": 0.5485
+        },
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 0.495
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 0.45
+        },
+        {
+          "dateEntreeVigueur": "01/10/2009",
+          "tarif": 0.445
+        },
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 0.4895
+        },
+        {
+          "dateEntreeVigueur": "01/03/2016",
+          "tarif": 0.5384
+        },
+        {
+          "dateEntreeVigueur": "01/01/2017",
+          "tarif": 0.5923
+        },
+        {
+          "dateEntreeVigueur": "31/12/2019",
+          "tarif": 0.5923
+        }
+      ]
+    },
+    {
+      "operateur": "PRO",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2019",
+          "tarif": 0.6584
+        },
+        {
+          "dateEntreeVigueur": "01/01/2020",
+          "tarif": 0.6958
+        },
+        {
+          "dateEntreeVigueur": "31/12/2020",
+          "tarif": 0.6958
+        }
+      ]
+    }
+  ]
+}

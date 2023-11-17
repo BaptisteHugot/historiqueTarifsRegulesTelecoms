@@ -1,0 +1,57 @@
+{
+  "RoamingVoix": [
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "30/08/2007",
+          "tarif": 30
+        },
+        {
+          "dateEntreeVigueur": "30/08/2008",
+          "tarif": 28
+        },
+        {
+          "dateEntreeVigueur": "01/07/2009",
+          "tarif": 26
+        },
+        {
+          "dateEntreeVigueur": "01/07/2010",
+          "tarif": 22
+        },
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 18
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 14
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 10
+        },
+        {
+          "dateEntreeVigueur": "01/07/2014",
+          "tarif": 5
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 3.2
+        },
+        {
+          "dateEntreeVigueur": "01/07/2022",
+          "tarif": 2.2
+        },
+        {
+          "dateEntreeVigueur": "01/01/2025",
+          "tarif": 1.9
+        },
+        {
+          "dateEntreeVigueur": "30/06/2032",
+          "tarif": 1.9
+        }
+      ]
+    }
+  ]
+}

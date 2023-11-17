@@ -1,0 +1,17 @@
+{
+  "IntraUEVoix": [
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "15/05/2019",
+          "tarif": 19
+        },
+        {
+          "dateEntreeVigueur": "31/12/2024",
+          "tarif": 19
+        }
+      ]
+    }
+  ]
+}

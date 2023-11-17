@@ -1,0 +1,59 @@
+{
+  "TASMSMetropole": [
+    {
+      "operateur": "Orange & SFR",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2005",
+          "tarif": 4.3
+        },
+        {
+          "dateEntreeVigueur": "01/08/2006",
+          "tarif": 3
+        },
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 2
+        },
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 1.5
+        }
+      ]
+    },
+    {
+      "operateur": "Bouygues Telecom",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/08/2006",
+          "tarif": 3.5
+        },
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 2.17
+        },
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 1.5
+        }
+      ]
+    },
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 1.5
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 1
+        },
+        {
+          "dateEntreeVigueur": "30/09/2013",
+          "tarif": 1
+        }
+      ]
+    }
+  ]
+}

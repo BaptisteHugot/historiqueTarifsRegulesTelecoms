@@ -1,0 +1,95 @@
+{
+  "DASVAFixe": [
+    {
+      "operateur": "France Telecom - Orange",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2006",
+          "tarif": 0.5734
+        },
+        {
+          "dateEntreeVigueur": "01/07/2006",
+          "tarif": 0.5485
+        },
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 0.495
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 0.45
+        },
+        {
+          "dateEntreeVigueur": "01/10/2009",
+          "tarif": 0.445
+        },
+        {
+          "dateEntreeVigueur": "01/01/2012",
+          "tarif": 0.43
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 0.415
+        },
+        {
+          "dateEntreeVigueur": "01/01/2014",
+          "tarif": 0.4
+        },
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 0.4
+        }
+      ]
+    },
+    {
+      "operateur": "Opérateurs alternatifs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2006",
+          "tarif": 1.11
+        },
+        {
+          "dateEntreeVigueur": "01/01/2007",
+          "tarif": 1.088
+        },
+        {
+          "dateEntreeVigueur": "01/10/2009",
+          "tarif": 0.84
+        },
+        {
+          "dateEntreeVigueur": "01/10/2010",
+          "tarif": 0.79
+        },
+        {
+          "dateEntreeVigueur": "01/01/2012",
+          "tarif": 0.6681
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 0.5706
+        },
+        {
+          "dateEntreeVigueur": "01/01/2014",
+          "tarif": 0.4731
+        },
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 0.4
+        }
+      ]
+    },
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 0.4
+        },
+        {
+          "dateEntreeVigueur": "30/09/2015",
+          "tarif": 0.4
+        }
+      ]
+    }
+  ]
+}

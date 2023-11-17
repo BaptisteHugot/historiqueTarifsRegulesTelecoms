@@ -1,0 +1,247 @@
+{
+  "TAVoixMobileZAG": [
+    {
+      "operateur": "Orange Caraïbe",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2004",
+          "tarif": 25.69
+        },
+        {
+          "dateEntreeVigueur": "01/01/2005",
+          "tarif": 20.56
+        },
+        {
+          "dateEntreeVigueur": "01/01/2006",
+          "tarif": 16.44
+        },
+        {
+          "dateEntreeVigueur": "01/01/2007",
+          "tarif": 13.16
+        },
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 11
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 8.7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 5.5
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 4
+        }
+      ]
+    },
+    {
+      "operateur": "Digicel",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 16
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 12.2
+        },
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 6.5
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 4
+        }
+      ]
+    },
+    {
+      "operateur": "Outremer Telecom (Guyane)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 19.2
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 13.7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 9
+        }
+      ]
+    },
+    {
+      "operateur": "Outremer Telecom (Antilles)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 22.9
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 15.7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 9
+        }
+      ]
+    },
+    {
+      "operateur": "Dauphin Telecom",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 24.9
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 16.7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 12
+        }
+      ]
+    },
+    {
+      "operateur": "UTS Caraïbe",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2008",
+          "tarif": 25.9
+        },
+        {
+          "dateEntreeVigueur": "01/01/2009",
+          "tarif": 17.7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 12
+        }
+      ]
+    },
+    {
+      "operateur": "Orange Caraïbe & Digicel",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 4
+        },
+        {
+          "dateEntreeVigueur": "01/01/2012",
+          "tarif": 2.5
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 1
+        }
+      ]
+    },
+    {
+      "operateur": "Outremer Telecom",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 9
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 5.5
+        },
+        {
+          "dateEntreeVigueur": "01/01/2012",
+          "tarif": 2.8
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 1
+        }
+      ]
+    },
+    {
+      "operateur": "Orange Caraïbe & Digicel & Outremer Telecom",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 1
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 1
+        }
+      ]
+    },
+    {
+      "operateur": "Dauphin Telecom & UTS Caraïbe",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 12
+        },
+        {
+          "dateEntreeVigueur": "01/01/2011",
+          "tarif": 8
+        },
+        {
+          "dateEntreeVigueur": "01/01/2012",
+          "tarif": 5
+        },
+        {
+          "dateEntreeVigueur": "01/01/2013",
+          "tarif": 2.5
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 1
+        }
+      ]
+    },
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 1
+        },
+        {
+          "dateEntreeVigueur": "01/01/2015",
+          "tarif": 0.78
+        },
+        {
+          "dateEntreeVigueur": "01/01/2016",
+          "tarif": 0.76
+        },
+        {
+          "dateEntreeVigueur": "01/01/2017",
+          "tarif": 0.74
+        },
+        {
+          "dateEntreeVigueur": "01/07/2021",
+          "tarif": 0.7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2022",
+          "tarif": 0.55
+        },
+        {
+          "dateEntreeVigueur": "01/01/2023",
+          "tarif": 0.4
+        },
+        {
+          "dateEntreeVigueur": "01/01/2024",
+          "tarif": 0.2
+        },
+        {
+          "dateEntreeVigueur": "31/12/2025",
+          "tarif": 0.2
+        }
+      ]
+    }
+  ]
+}

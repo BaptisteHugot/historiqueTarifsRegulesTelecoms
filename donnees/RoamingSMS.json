@@ -1,0 +1,37 @@
+{
+  "RoamingSMS": [
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2009",
+          "tarif": 4
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 3
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 2
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 1
+        },
+        {
+          "dateEntreeVigueur": "01/07/2022",
+          "tarif": 0.4
+        },
+        {
+          "dateEntreeVigueur": "01/01/2025",
+          "tarif": 0.3
+        },
+        {
+          "dateEntreeVigueur": "30/06/2032",
+          "tarif": 0.3
+        }
+      ]
+    }
+  ]
+}

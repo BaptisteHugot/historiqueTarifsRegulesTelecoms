@@ -1,0 +1,17 @@
+{
+  "IntraUESMS": [
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "15/05/2019",
+          "tarif": 6
+        },
+        {
+          "dateEntreeVigueur": "31/12/2024",
+          "tarif": 6
+        }
+      ]
+    }
+  ]
+}
