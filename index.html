@@ -1,109 +1,112 @@
 <!-- Page affichant les graphiques générés par le fichier Javascript situé dans le même dossier -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="./ressources.css">
-    <title>Historique des tarifs réglementés dans les télécommunications en France</title>
-  </head>
-  <body>
-    <div id="mySidenav" class="sidenav">
-      <center>
-        <h3>Données à afficher</h3>
-      </center>
-      <div class="btn-group-data" data-toggle="buttons">
-        <!-- Ici s'afficheront les boutons pour choisir les données à afficher -->
-        <button type="button" class="collapsible">Terminaison d'appel vocal fixe</button>
-        <div class="content">
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TAVoixFixe">Tous territoires </label>
-        </div>
-        <button type="button" class="collapsible">Terminaison d'appel vocal mobile</button>
-        <div class="content">
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TAVoixMobileMetropole">Métropole </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TAVoixMobileZAG">Antilles-Guyane </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TAVoixMobileZOI">Océan Indien </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TAVoixMobileSPM">Saint-Pierre-et-Miquelon </label>
-        </div>
-        <button type="button" class="collapsible">Terminaison d'appel SMS</button>
-        <div class="content">
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TASMSMetropole">Métropole </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TASMSZAG">Antilles-Guyane </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="TASMSZOI">Océan Indien </label>
-        </div>
-        <button type="button" class="collapsible">Départ d'appel vocal</button>
-        <div class="content">
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="DASdTFixe">Vocal fixe en sélection du transporteur </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="DASVAFixe">Vocal fixe vers SVA </label>
-        </div>
-        <button type="button" class="collapsible">Itinérance (gros) intra-UE</button>
-        <div class="content">
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="RoamingVoix">Voix </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="RoamingSMS">SMS </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="RoamingData">Données </label>
-        </div>
-        <button type="button" class="collapsible">Communications (détail) intra-UE</button>
-        <div class="content">
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="IntraUEVoix">Voix </label>
-          <br>
-          <label id='radioData' class="btn btn-primary">
-            <input type="radio" name="data" value="IntraUESMS">SMS </label>
-        </div>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <link rel="stylesheet" href="./ressources.css">
+      <title>Historique des tarifs réglementés dans les télécommunications en France</title>
+   </head>
+   <body>
+      <div id="mySidenav" class="sidenav">
+         <center>
+            <h3>Données à afficher</h3>
+         </center>
+         <div class="btn-group-data" data-toggle="buttons">
+            <!-- Ici s'afficheront les boutons pour choisir les données à afficher -->
+            <button type="button" class="collapsible">Terminaison d'appel vocal fixe</button>
+            <div class="content">
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TAVoixFixe">Tous territoires </label>
+            </div>
+            <button type="button" class="collapsible">Terminaison d'appel vocal mobile</button>
+            <div class="content">
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TAVoixMobileMetropole">Métropole </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TAVoixMobileZAG">Antilles-Guyane </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TAVoixMobileZOI">Océan Indien </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TAVoixMobileSPM">Saint-Pierre-et-Miquelon </label>
+            </div>
+            <button type="button" class="collapsible">Terminaison d'appel SMS</button>
+            <div class="content">
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TASMSMetropole">Métropole </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TASMSZAG">Antilles-Guyane </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="TASMSZOI">Océan Indien </label>
+            </div>
+            <button type="button" class="collapsible">Départ d'appel vocal</button>
+            <div class="content">
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="DASdTFixe">Vocal fixe en sélection du transporteur </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="DASVAFixe">Vocal fixe vers SVA </label>
+            </div>
+            <button type="button" class="collapsible">Itinérance (gros) intra-UE</button>
+            <div class="content">
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="RoamingVoix">Voix </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="RoamingSMS">SMS </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="RoamingData">Données </label>
+            </div>
+            <button type="button" class="collapsible">Communications (détail) intra-UE</button>
+            <div class="content">
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="IntraUEVoix">Voix </label>
+               <br>
+               <label id='radioData' class="btn btn-primary">
+               <input type="radio" name="data" value="IntraUESMS">SMS </label>
+            </div>
+         </div>
       </div>
-    </div>
-    <div id="main">
-      <div class="btn-group-display" data-toggle="buttons">
-        <!-- Ici s'afficheront les boutons pour choisir d'afficher le tableau ou le graphique -->
-        <label id='radioDisplay' class="btn btn-primary">
-          <i>Mode d'affichage : </i>
-          <input type="radio" name="display" value="graphique">
-          <i>Graphique</i>
-        </label>
-        <label id='radioDisplay' class="btn btn-primary">
-          <input type="radio" name="display" value="tableau">
-          <i>Tableau</i>
-        </label>
-        <button class="resetZoomButton">
-          <i>Réinitialiser le zoom</i>
-        </button>
+      <div id="main">
+         <div class="btn-group-display" data-toggle="buttons">
+            <!-- Ici s'afficheront les boutons pour choisir d'afficher le tableau ou le graphique -->
+            <label id='radioDisplay' class="btn btn-primary">
+            <i>Mode d'affichage : </i>
+            <input type="radio" name="display" value="graphique">
+            <i>Graphique</i>
+            </label>
+            <label id='radioDisplay' class="btn btn-primary">
+            <input type="radio" name="display" value="tableau">
+            <i>Tableau</i>
+            </label>
+            <button class="resetZoomButton">
+            <i>Réinitialiser le zoom</i>
+            </button>
+            <button class="exportGraphButton">
+            <i>Exporter le graphique</i>
+            </button>
+         </div>
+         <br />
+         <div id="title">
+            <!-- Ici s'affichera le titre de la page -->
+         </div>
+         <br />
+         <table id="table">
+            <!-- Ici s'affichera le tableau -->
+         </table>
+         <canvas id="chart">
+            <!-- Ici s'affichera le graphique -->
+         </canvas>
       </div>
-      <br />
-      <div id="title">
-        <!-- Ici s'affichera le titre de la page -->
-      </div>
-      <br />
-      <table id="table">
-        <!-- Ici s'affichera le tableau -->
-      </table>
-      <canvas id="chart">
-        <!-- Ici s'affichera le graphique -->
-      </canvas>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
-    <script src="./ressources.js" type="module"></script>
-  </body>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+      <script src="./ressources.js" type="module"></script>
+   </body>
 </html>

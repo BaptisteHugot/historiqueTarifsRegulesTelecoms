@@ -133,6 +133,7 @@ thead {
   .sidenav {
     padding-top: 15px;
   }
+
   .sidenav a {
     font-size: 18px;
   }
@@ -175,7 +176,9 @@ thead {
   content: "\2212";
 }
 
-.resetZoomButton {
+.resetZoomButton,
+.exportGraphButton {
   visibility: hidden;
   float: right;
+  margin-right: 2em;
 }

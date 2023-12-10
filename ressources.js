@@ -1,5 +1,7 @@
 var display = ""; // Variable permettant de récupérer le type (graphique ou tableau) à afficher
 var data = ""; // Variable permettant de savoir quelles données à afficher
+var titre = ""; // Le titre de la page
+var nomFichierExport = ""; // Le nom du fichier d'export du graphique au format png
 
 // On laisse permanente une barre à gauche pour choisir les données à afficher
 document.getElementById("mySidenav").style.width = "250px";
@@ -22,7 +24,6 @@ function showTitle(titre) {
  * @param data Les données à afficher
  */
 function dataTypeDisplay(display, data) {
-    var titre = ""; // Le titre de la page
     var minimumDate = ""; // La date minimale du graphique
     var maximumDate = ""; // La date maximale du graphique
     var ordonnee = ""; // L'unité du graphique ou du tableau
@@ -33,6 +34,7 @@ function dataTypeDisplay(display, data) {
         document.getElementById("table").innerHTML = ""; // On efface le tableau
         if (data != "") {
             document.querySelector("button.resetZoomButton").style.visibility = "visible"; // On affiche le bouton de reset du zoom quand un graphe est affiché uniquement
+            document.querySelector("button.exportGraphButton").style.visibility = "visible"; // On affiche le bouton d'export du graphique quand un graphe est affiché uniquement
             switch (data) {
                 case "TAVoixFixe":
                     titre = "Terminaison d'appel vocal fixe";
@@ -53,6 +55,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
                     }];
+                    nomFichierExport = "TAVoixFixe";
                     break;
                 case "TAVoixMobileMetropole":
                     titre = "Terminaison d'appel vocal mobile en métropole";
@@ -79,6 +82,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
                     }];
+                    nomFichierExport = "TAVoixMobileMetropole";
                     break;
                 case "TAVoixMobileZAG":
                     titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
@@ -111,6 +115,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
                     }];
+                    nomFichierExport = "TAVoixMobileZAG";
                     break;
                 case "TAVoixMobileZOI":
                     titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
@@ -137,6 +142,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
                     }];
+                    nomFichierExport = "TAVoixMobileZOI";
                     break;
                 case "TAVoixMobileSPM":
                     titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
@@ -145,6 +151,7 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/min";
                     json = "./donnees/TAVoixMobileSPM.json";
                     dataAnnotation = [];
+                    nomFichierExport = "TAVoixMobileSPM";
                     break;
                 case "TASMSMetropole":
                     titre = "Terminaison d'appel SMS en métropole";
@@ -159,6 +166,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Symétrie pour tous", "les opérateurs"]
                     }];
+                    nomFichierExport = "TASMSMetropole";
                     break;
                 case "TASMSZAG":
                     titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
@@ -167,6 +175,7 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/SMS";
                     json = "./donnees/TASMSZAG.json";
                     dataAnnotation = [];
+                    nomFichierExport = "TASMSZAG";
                     break;
                 case "TASMSZOI":
                     titre = "Terminaison d'appel SMS dans la zone Océan Indien";
@@ -175,6 +184,7 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/SMS";
                     json = "./donnees/TASMSZOI.json";
                     dataAnnotation = [];
+                    nomFichierExport = "TASMSZOI";
                     break;
                 case "DASdTFixe":
                     titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
@@ -195,6 +205,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: 0,
                         texte: ["Début de la régulation", "tarifaire aux PRO"]
                     }];
+                    nomFichierExport = "DASdTFixe";
                     break;
                 case "DASVAFixe":
                     titre = "Départ d'appel vocal fixe vers les services à valeur ajoutée";
@@ -209,6 +220,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Symétrie pour tous", "les opérateurs"]
                     }];
+                    nomFichierExport = "DASVAFixe";
                     break;
                 case "RoamingVoix":
                     titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
@@ -223,6 +235,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
                     }];
+                    nomFichierExport = "RoamingVoix";
                     break;
                 case "RoamingSMS":
                     titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
@@ -237,6 +250,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
                     }];
+                    nomFichierExport = "RoamingSMS";
                     break;
                 case "RoamingData":
                     titre = "Tarif de gros des données en itinérance dans l'Union européenne";
@@ -251,6 +265,7 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
                     }];
+                    nomFichierExport = "RoamingData";
                     break;
                 case "IntraUEVoix":
                     titre = "Tarif de détail d'un appel dans l'Union européenne";
@@ -259,6 +274,7 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/min";
                     json = "./donnees/IntraUEVoix.json";
                     dataAnnotation = [];
+                    nomFichierExport = "IntraUEVoix";
                     break;
                 case "IntraUESMS":
                     titre = "Tarif de détail d'un SMS dans l'Union européenne";
@@ -267,6 +283,7 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/SMS";
                     json = "./donnees/IntraUESMS.json";
                     dataAnnotation = [];
+                    nomFichierExport = "IntraUESMS";
                     break;
                 default:
                     break;
@@ -279,6 +296,7 @@ function dataTypeDisplay(display, data) {
             chartStatus.destroy();
         }
         document.querySelector("button.resetZoomButton").style.visibility = "hidden"; // On n'affiche pas le bouton de reset du zoom
+        document.querySelector("button.exportGraphButton").style.visibility = "hidden"; // On n'affiche pas le bouton d'export du graphique        
         if (data != "") {
             switch (data) {
                 case "TAVoixFixe":
@@ -371,6 +389,21 @@ document.querySelector("button.resetZoomButton").addEventListener("click", funct
     chart.resetZoom();
 })
 
+// Gestionnaire du bouton permettant d'exporter le graphique
+document.querySelector("button.exportGraphButton").addEventListener("click", function() {
+    var chart = Chart.getChart("chart");
+    chart.options.plugins.title.display = true;
+    chart.update("none");
+
+    var a = document.createElement("a"); // On définit une balise fictive pour le téléchargement
+    a.href = chart.toBase64Image("image/png", 1); // On convertit le graphique en png avec la meilleure qualité
+    a.download = nomFichierExport;
+    a.click();
+
+    chart.options.plugins.title.display = false;
+    chart.update("none");
+});
+
 // Gestionnaire de clics pour savoir s'il faut afficher le tableau ou le graphique
 document.querySelector("div.btn-group-display").addEventListener("change", function(evt) {
     // On vérifie si un bouton radio a déclenché un évènement
@@ -385,7 +418,6 @@ document.querySelector("div.btn-group-display").addEventListener("change", funct
 });
 
 // Gestionnaire des éléments rétractables dans la barre de navigation
-//var i;
 var coll = document.getElementsByClassName("collapsible");
 
 for (var i = 0; i < coll.length; i++) {
@@ -450,6 +482,8 @@ document.querySelector("div.btn-group-data").addEventListener("change", function
                 break;
             case "IntraUESMS":
                 data = "IntraUESMS";
+                break;
+            default:
                 break;
         }
     }
@@ -571,6 +605,8 @@ function getColor(id) {
         case "SPM Telecom":
             return "#e6194B";
             break;
+        default:
+            break;
     }
 }
 
@@ -612,7 +648,6 @@ function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation, titre)
                 borderColor: "#000000",
             },
         });
-
     }
 
     var myChart = new Chart(weeklyHistoryChartEl, {
@@ -630,6 +665,9 @@ function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation, titre)
                 intersect: false,
             },
             plugins: {
+                customCanvasBackgroundColor: { // On définit pour l'export du graphique la couleur de fond
+                    color: "white",
+                },
                 zoom: {
                     limits: {
                         x: {
@@ -727,7 +765,8 @@ function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation, titre)
                     },
                 },
             }
-        }
+        },
+        plugins: [pluginBackgroundColor],
     });
     fetch(jsonFile).then(response => { // On récupère le fichier Json
         return response.json();
@@ -858,3 +897,18 @@ function showTableau(json, ordonnee) {
         table.appendChild(tbl); // On ajoute le tableau dans la page HTML
     });
 }
+
+// Plugin de Chart JS pour définir la couleur de fond de l'image qui sera exportée
+const pluginBackgroundColor = {
+    id: 'customCanvasBackgroundColor',
+    beforeDraw: (chart, args, options) => {
+        const {
+            ctx
+        } = chart;
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = options.color || '#ffffff';
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+    }
+};
