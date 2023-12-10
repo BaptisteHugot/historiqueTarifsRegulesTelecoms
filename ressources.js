@@ -33,328 +33,334 @@ function dataTypeDisplay(display, data) {
         document.getElementById("table").innerHTML = ""; // On efface le tableau
         if (data != "") {
             document.querySelector("button.resetZoomButton").style.visibility = "visible"; // On affiche le bouton de reset du zoom quand un graphe est affiché uniquement
+            switch (data) {
+                case "TAVoixFixe":
+                    titre = "Terminaison d'appel vocal fixe";
+                    minimumDate = "2008-01-01";
+                    maximumDate = "2025-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixFixe.json";
+                    dataAnnotation = [{
+                        x: "2011-01-01",
+                        y: 0.3,
+                        xAjuste: 220,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous", "les opérateurs"]
+                    }, {
+                        x: "2021-07-01",
+                        y: 0.07,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
+                    }];
+                    break;
+                case "TAVoixMobileMetropole":
+                    titre = "Terminaison d'appel vocal mobile en métropole";
+                    minimumDate = "2002-03-01";
+                    maximumDate = "2025-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileMetropole.json";
+                    dataAnnotation = [{
+                        x: "2011-07-01",
+                        y: 2,
+                        xAjuste: 30,
+                        yAjuste: -130,
+                        texte: ["Fin de l'asymétrie", "de Bouygues Telecom"]
+                    }, {
+                        x: "2013-07-01",
+                        y: 0.8,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous", "les opérateurs"]
+                    }, {
+                        x: "2021-07-01",
+                        y: 0.7,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
+                    }];
+                    break;
+                case "TAVoixMobileZAG":
+                    titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
+                    minimumDate = "2004-01-01";
+                    maximumDate = "2025-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileZAG.json";
+                    dataAnnotation = [{
+                        x: "2011-01-01",
+                        y: 4,
+                        xAjuste: -200,
+                        yAjuste: -20,
+                        texte: ["Symétrie entre Orange", "Caraïbe et Digicel"]
+                    }, {
+                        x: "2013-01-01",
+                        y: 1,
+                        xAjuste: -200,
+                        yAjuste: -10,
+                        texte: ["Symétrie entre Orange Caraïbe", "Digicel et Outremer Telecom"]
+                    }, {
+                        x: "2013-07-01",
+                        y: 1,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous", "les opérateurs"]
+                    }, {
+                        x: "2021-07-01",
+                        y: 0.7,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
+                    }];
+                    break;
+                case "TAVoixMobileZOI":
+                    titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
+                    minimumDate = "2004-01-01";
+                    maximumDate = "2025-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileZOI.json";
+                    dataAnnotation = [{
+                        x: "2012-01-01",
+                        y: 2.8,
+                        xAjuste: -200,
+                        yAjuste: 10,
+                        texte: ["Symétrie entre Orange Réunion", "et Outremer Telecom"]
+                    }, {
+                        x: "2013-01-01",
+                        y: 1,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous", "les opérateurs"]
+                    }, {
+                        x: "2021-07-01",
+                        y: 0.7,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
+                    }];
+                    break;
+                case "TAVoixMobileSPM":
+                    titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
+                    minimumDate = "2005-04-01";
+                    maximumDate = "2025-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileSPM.json";
+                    dataAnnotation = [];
+                    break;
+                case "TASMSMetropole":
+                    titre = "Terminaison d'appel SMS en métropole";
+                    minimumDate = "2005-07-01";
+                    maximumDate = "2013-09-30";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSMetropole.json";
+                    dataAnnotation = [{
+                        x: "2011-07-01",
+                        y: 1.5,
+                        xAjuste: 200,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous", "les opérateurs"]
+                    }];
+                    break;
+                case "TASMSZAG":
+                    titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
+                    minimumDate = "2010-10-01";
+                    maximumDate = "2013-09-30";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSZAG.json";
+                    dataAnnotation = [];
+                    break;
+                case "TASMSZOI":
+                    titre = "Terminaison d'appel SMS dans la zone Océan Indien";
+                    minimumDate = "2010-10-01";
+                    maximumDate = "2013-09-30";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSZOI.json";
+                    dataAnnotation = [];
+                    break;
+                case "DASdTFixe":
+                    titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
+                    minimumDate = "2006-01-01";
+                    maximumDate = "2020-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/DASdTFixe.json";
+                    dataAnnotation = [{
+                        x: "2019-12-31",
+                        y: 0.5923,
+                        xAjuste: -100,
+                        yAjuste: 100,
+                        texte: ["Fin de la régulation", "tarifaire aux CAA"]
+                    }, {
+                        x: "2019-01-01",
+                        y: 0.6584,
+                        xAjuste: -100,
+                        yAjuste: 0,
+                        texte: ["Début de la régulation", "tarifaire aux PRO"]
+                    }];
+                    break;
+                case "DASVAFixe":
+                    titre = "Départ d'appel vocal fixe vers les services à valeur ajoutée";
+                    minimumDate = "2006-01-01";
+                    maximumDate = "2015-10-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/DASVAFixe.json";
+                    dataAnnotation = [{
+                        x: "2015-01-01",
+                        y: 0.4,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Symétrie pour tous", "les opérateurs"]
+                    }];
+                    break;
+                case "RoamingVoix":
+                    titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
+                    minimumDate = "2007-08-30";
+                    maximumDate = "2032-06-30";
+                    ordonnee = "c€/min";
+                    json = "./donnees/RoamingVoix.json";
+                    dataAnnotation = [{
+                        x: "2017-06-15",
+                        y: 3.2,
+                        xAjuste: 20,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                    }];
+                    break;
+                case "RoamingSMS":
+                    titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
+                    minimumDate = "2009-07-01";
+                    maximumDate = "2032-06-30";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/RoamingSMS.json";
+                    dataAnnotation = [{
+                        x: "2017-06-15",
+                        y: 1,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                    }];
+                    break;
+                case "RoamingData":
+                    titre = "Tarif de gros des données en itinérance dans l'Union européenne";
+                    minimumDate = "2012-07-01";
+                    maximumDate = "2032-06-30";
+                    ordonnee = "€/Mo";
+                    json = "./donnees/RoamingData.json";
+                    dataAnnotation = [{
+                        x: "2017-06-15",
+                        y: 7.7,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                    }];
+                    break;
+                case "IntraUEVoix":
+                    titre = "Tarif de détail d'un appel dans l'Union européenne";
+                    minimumDate = "2009-06-15";
+                    maximumDate = "2024-12-31";
+                    ordonnee = "c€/min";
+                    json = "./donnees/IntraUEVoix.json";
+                    dataAnnotation = [];
+                    break;
+                case "IntraUESMS":
+                    titre = "Tarif de détail d'un SMS dans l'Union européenne";
+                    minimumDate = "2019-06-15";
+                    maximumDate = "2024-12-31";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/IntraUESMS.json";
+                    dataAnnotation = [];
+                    break;
+                default:
+                    break;
+            }
+            showGraphe(minimumDate, maximumDate, ordonnee, json, dataAnnotation, titre);
         }
-        switch (data) {
-            case "TAVoixFixe":
-                titre = "Terminaison d'appel vocal fixe";
-                minimumDate = "2008-01-01";
-                maximumDate = "2025-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixFixe.json";
-                dataAnnotation = [{
-                    x: "2011-01-01",
-                    y: 0.3,
-                    xAjuste: 220,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous", "les opérateurs"]
-                }, {
-                    x: "2021-07-01",
-                    y: 0.07,
-                    xAjuste: 180,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
-                }];
-                break;
-            case "TAVoixMobileMetropole":
-                titre = "Terminaison d'appel vocal mobile en métropole";
-                minimumDate = "2002-03-01";
-                maximumDate = "2025-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileMetropole.json";
-                dataAnnotation = [{
-                    x: "2011-07-01",
-                    y: 2,
-                    xAjuste: 30,
-                    yAjuste: -130,
-                    texte: ["Fin de l'asymétrie", "de Bouygues Telecom"]
-                }, {
-                    x: "2013-07-01",
-                    y: 0.8,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous", "les opérateurs"]
-                }, {
-                    x: "2021-07-01",
-                    y: 0.7,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
-                }];
-                break;
-            case "TAVoixMobileZAG":
-                titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
-                minimumDate = "2004-01-01";
-                maximumDate = "2025-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileZAG.json";
-                dataAnnotation = [{
-                    x: "2011-01-01",
-                    y: 4,
-                    xAjuste: -200,
-                    yAjuste: -20,
-                    texte: ["Symétrie entre Orange", "Caraïbe et Digicel"]
-                }, {
-                    x: "2013-01-01",
-                    y: 1,
-                    xAjuste: -200,
-                    yAjuste: -10,
-                    texte: ["Symétrie entre Orange Caraïbe", "Digicel et Outremer Telecom"]
-                }, {
-                    x: "2013-07-01",
-                    y: 1,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous", "les opérateurs"]
-                }, {
-                    x: "2021-07-01",
-                    y: 0.7,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
-                }];
-                break;
-            case "TAVoixMobileZOI":
-                titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
-                minimumDate = "2004-01-01";
-                maximumDate = "2025-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileZOI.json";
-                dataAnnotation = [{
-                    x: "2012-01-01",
-                    y: 2.8,
-                    xAjuste: -200,
-                    yAjuste: 10,
-                    texte: ["Symétrie entre Orange Réunion", "et Outremer Telecom"]
-                }, {
-                    x: "2013-01-01",
-                    y: 1,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous", "les opérateurs"]
-                }, {
-                    x: "2021-07-01",
-                    y: 0.7,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous les", "opérateurs intra-UE"]
-                }];
-                break;
-            case "TAVoixMobileSPM":
-                titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
-                minimumDate = "2005-04-01";
-                maximumDate = "2025-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileSPM.json";
-                dataAnnotation = [];
-                break;
-            case "TASMSMetropole":
-                titre = "Terminaison d'appel SMS en métropole";
-                minimumDate = "2005-07-01";
-                maximumDate = "2013-09-30";
-                ordonnee = "c€/SMS";
-                json = "./donnees/TASMSMetropole.json";
-                dataAnnotation = [{
-                    x: "2011-07-01",
-                    y: 1.5,
-                    xAjuste: 200,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous", "les opérateurs"]
-                }];
-                break;
-            case "TASMSZAG":
-                titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
-                minimumDate = "2010-10-01";
-                maximumDate = "2013-09-30";
-                ordonnee = "c€/SMS";
-                json = "./donnees/TASMSZAG.json";
-                dataAnnotation = [];
-                break;
-            case "TASMSZOI":
-                titre = "Terminaison d'appel SMS dans la zone Océan Indien";
-                minimumDate = "2010-10-01";
-                maximumDate = "2013-09-30";
-                ordonnee = "c€/SMS";
-                json = "./donnees/TASMSZOI.json";
-                dataAnnotation = [];
-                break;
-            case "DASdTFixe":
-                titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
-                minimumDate = "2006-01-01";
-                maximumDate = "2020-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/DASdTFixe.json";
-                dataAnnotation = [{
-                    x: "2019-12-31",
-                    y: 0.5923,
-                    xAjuste: -100,
-                    yAjuste: 100,
-                    texte: ["Fin de la régulation", "tarifaire aux CAA"]
-                }, {
-                    x: "2019-01-01",
-                    y: 0.6584,
-                    xAjuste: -100,
-                    yAjuste: 0,
-                    texte: ["Début de la régulation", "tarifaire aux PRO"]
-                }];
-                break;
-            case "DASVAFixe":
-                titre = "Départ d'appel vocal fixe vers les services à valeur ajoutée";
-                minimumDate = "2006-01-01";
-                maximumDate = "2015-10-31";
-                ordonnee = "c€/min";
-                json = "./donnees/DASVAFixe.json";
-                dataAnnotation = [{
-                    x: "2015-01-01",
-                    y: 0.4,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Symétrie pour tous", "les opérateurs"]
-                }];
-                break;
-            case "RoamingVoix":
-                titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
-                minimumDate = "2007-08-30";
-                maximumDate = "2032-06-30";
-                ordonnee = "c€/min";
-                json = "./donnees/RoamingVoix.json";
-                dataAnnotation = [{
-                    x: "2017-06-15",
-                    y: 3.2,
-                    xAjuste: 20,
-                    yAjuste: -100,
-                    texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
-                }];
-                break;
-            case "RoamingSMS":
-                titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
-                minimumDate = "2009-07-01";
-                maximumDate = "2032-06-30";
-                ordonnee = "c€/SMS";
-                json = "./donnees/RoamingSMS.json";
-                dataAnnotation = [{
-                    x: "2017-06-15",
-                    y: 1,
-                    xAjuste: 180,
-                    yAjuste: -100,
-                    texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
-                }];
-                break;
-            case "RoamingData":
-                titre = "Tarif de gros des données en itinérance dans l'Union européenne";
-                minimumDate = "2012-07-01";
-                maximumDate = "2032-06-30";
-                ordonnee = "€/Mo";
-                json = "./donnees/RoamingData.json";
-                dataAnnotation = [{
-                    x: "2017-06-15",
-                    y: 7.7,
-                    xAjuste: 180,
-                    yAjuste: -100,
-                    texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
-                }];
-                break;
-            case "IntraUEVoix":
-                titre = "Tarif de détail d'un appel dans l'Union européenne";
-                minimumDate = "2009-06-15";
-                maximumDate = "2024-12-31";
-                ordonnee = "c€/min";
-                json = "./donnees/IntraUEVoix.json";
-                dataAnnotation = [];
-                break;
-            case "IntraUESMS":
-                titre = "Tarif de détail d'un SMS dans l'Union européenne";
-                minimumDate = "2019-06-15";
-                maximumDate = "2024-12-31";
-                ordonnee = "c€/SMS";
-                json = "./donnees/IntraUESMS.json";
-                dataAnnotation = [];
-                break;
-        }
-        showGraphe(minimumDate, maximumDate, ordonnee, json, dataAnnotation);
     } else if (display === "tableau") {
         let chartStatus = Chart.getChart("chart");
         if (chartStatus != undefined) { // Si un graphique a déjà été créé, on le détruit
             chartStatus.destroy();
         }
         document.querySelector("button.resetZoomButton").style.visibility = "hidden"; // On n'affiche pas le bouton de reset du zoom
-        switch (data) {
-            case "TAVoixFixe":
-                titre = "Terminaison d'appel vocal fixe";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixFixe.json";
-                break;
-            case "TAVoixMobileMetropole":
-                titre = "Terminaison d'appel vocal mobile en métropole";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileMetropole.json";
-                break;
-            case "TAVoixMobileZAG":
-                titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileZAG.json";
-                break;
-            case "TAVoixMobileZOI":
-                titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileZOI.json";
-                break;
-            case "TAVoixMobileSPM":
-                titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
-                ordonnee = "c€/min";
-                json = "./donnees/TAVoixMobileSPM.json";
-                break;
-            case "TASMSMetropole":
-                titre = "Terminaison d'appel SMS en métropole";
-                ordonnee = "c€/SMS";
-                json = "./donnees/TASMSMetropole.json";
-                break;
-            case "TASMSZAG":
-                titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
-                ordonnee = "c€/SMS";
-                json = "./donnees/TASMSZAG.json";
-                break;
-            case "TASMSZOI":
-                titre = "Terminaison d'appel SMS dans la zone Océan Indien";
-                ordonnee = "c€/SMS";
-                json = "./donnees/TASMSZOI.json";
-                break;
-            case "DASdTFixe":
-                titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
-                ordonnee = "c€/min";
-                json = "./donnees/DASdTFixe.json";
-                break;
-            case "DASVAFixe":
-                titre = "Départ d'appel vocal fixe vers les services à valeur ajoutée";
-                ordonnee = "c€/min";
-                json = "./donnees/DASVAFixe.json";
-                break;
-            case "RoamingVoix":
-                titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
-                ordonnee = "c€/min";
-                json = "./donnees/RoamingVoix.json";
-                break;
-            case "RoamingSMS":
-                titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
-                ordonnee = "c€/SMS";
-                json = "./donnees/RoamingSMS.json";
-                break;
-            case "RoamingData":
-                titre = "Tarif de gros des données en itinérance dans l'Union européenne";
-                ordonnee = "€/Mo";
-                json = "./donnees/RoamingData.json";
-                break;
-            case "IntraUEVoix":
-                titre = "Tarif de détail d'un appel dans l'Union européenne";
-                ordonnee = "c€/min";
-                json = "./donnees/IntraUEVoix.json";
-                break;
-            case "IntraUESMS":
-                titre = "Tarif de détail d'un SMS dans l'Union européenne";
-                ordonnee = "c€/SMS";
-                json = "./donnees/IntraUESMS.json";
-                break;
+        if (data != "") {
+            switch (data) {
+                case "TAVoixFixe":
+                    titre = "Terminaison d'appel vocal fixe";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixFixe.json";
+                    break;
+                case "TAVoixMobileMetropole":
+                    titre = "Terminaison d'appel vocal mobile en métropole";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileMetropole.json";
+                    break;
+                case "TAVoixMobileZAG":
+                    titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileZAG.json";
+                    break;
+                case "TAVoixMobileZOI":
+                    titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileZOI.json";
+                    break;
+                case "TAVoixMobileSPM":
+                    titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
+                    ordonnee = "c€/min";
+                    json = "./donnees/TAVoixMobileSPM.json";
+                    break;
+                case "TASMSMetropole":
+                    titre = "Terminaison d'appel SMS en métropole";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSMetropole.json";
+                    break;
+                case "TASMSZAG":
+                    titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSZAG.json";
+                    break;
+                case "TASMSZOI":
+                    titre = "Terminaison d'appel SMS dans la zone Océan Indien";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSZOI.json";
+                    break;
+                case "DASdTFixe":
+                    titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
+                    ordonnee = "c€/min";
+                    json = "./donnees/DASdTFixe.json";
+                    break;
+                case "DASVAFixe":
+                    titre = "Départ d'appel vocal fixe vers les services à valeur ajoutée";
+                    ordonnee = "c€/min";
+                    json = "./donnees/DASVAFixe.json";
+                    break;
+                case "RoamingVoix":
+                    titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
+                    ordonnee = "c€/min";
+                    json = "./donnees/RoamingVoix.json";
+                    break;
+                case "RoamingSMS":
+                    titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/RoamingSMS.json";
+                    break;
+                case "RoamingData":
+                    titre = "Tarif de gros des données en itinérance dans l'Union européenne";
+                    ordonnee = "€/Mo";
+                    json = "./donnees/RoamingData.json";
+                    break;
+                case "IntraUEVoix":
+                    titre = "Tarif de détail d'un appel dans l'Union européenne";
+                    ordonnee = "c€/min";
+                    json = "./donnees/IntraUEVoix.json";
+                    break;
+                case "IntraUESMS":
+                    titre = "Tarif de détail d'un SMS dans l'Union européenne";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/IntraUESMS.json";
+                    break;
+                default:
+                    break;
+            }
+            showTableau(json, ordonnee);
         }
-        showTableau(json, ordonnee);
     }
     showTitle(titre);
 }
@@ -576,7 +582,7 @@ function getColor(id) {
  * @param jsonFile Le lien vers le fichier Json
  * @param dataAnnotation Les annotations à afficher sur le graphique
  */
-function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation) {
+function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation, titre) {
     var weeklyHistoryChartEl = document.getElementById("chart");
     var ctx = weeklyHistoryChartEl.getContext("2d");
     ctx.beginPath();
@@ -652,16 +658,16 @@ function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation) {
                         mode: "xy",
                     },
                 },
-                /*title: { // On définit le titre
-                  display: true,
-                  text: titre,
-                  align: "center",
-                  color: "#000000",
-                  font:{
+                title: { // On définit le titre
+                    display: false,
+                    text: titre,
+                    align: "center",
+                    color: "#000000",
+                    font: {
                         weight: 700,
                         size: 14,
-                      },
-                },*/
+                    },
+                },
                 annotation: { // On définit d'éventuelles annotations sur le graphique
                     annotations: annotations,
                 },
