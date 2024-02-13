@@ -1,0 +1,63 @@
+{
+  "RoamingDetailSMS": [
+    {
+      "operateur": "SMS émis",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2009",
+          "tarif": 11
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 9
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 8
+        },
+        {
+          "dateEntreeVigueur": "01/07/2014",
+          "tarif": 6
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "SMS reçu",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2009",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "SMS émis ou reçu",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "01/07/2022",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "30/06/2032",
+          "tarif": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "RoamingDetailVoix": [
+    {
+      "operateur": "Appel émis",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "30/08/2007",
+          "tarif": 49
+        },
+        {
+          "dateEntreeVigueur": "30/08/2008",
+          "tarif": 46
+        },
+        {
+          "dateEntreeVigueur": "30/08/2009",
+          "tarif": 43
+        },
+        {
+          "dateEntreeVigueur": "01/07/2010",
+          "tarif": 39
+        },
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 35
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 29
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 24
+        },
+        {
+          "dateEntreeVigueur": "01/07/2014",
+          "tarif": 19
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "Appel reçu",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "30/08/2007",
+          "tarif": 24
+        },
+        {
+          "dateEntreeVigueur": "30/08/2008",
+          "tarif": 22
+        },
+        {
+          "dateEntreeVigueur": "30/08/2009",
+          "tarif": 19
+        },
+        {
+          "dateEntreeVigueur": "01/07/2010",
+          "tarif": 15
+        },
+        {
+          "dateEntreeVigueur": "01/07/2011",
+          "tarif": 11
+        },
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 8
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 7
+        },
+        {
+          "dateEntreeVigueur": "01/07/2014",
+          "tarif": 5
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "Appel émis ou reçu",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "01/07/2022",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "30/06/2032",
+          "tarif": 0
+        }
+      ]
+    }
+  ]
+}

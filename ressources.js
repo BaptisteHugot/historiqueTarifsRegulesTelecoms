@@ -222,12 +222,30 @@ function dataTypeDisplay(display, data) {
                     }];
                     nomFichierExport = "DASVAFixe";
                     break;
-                case "RoamingVoix":
+                case "VGASTAnalogique":
+                    titre = "Accès au service téléphonique fixe pour les lignes analogiques";
+                    minimumDate = "2016-03-01";
+                    maximumDate = "2020-12-31";
+                    ordonnee = "€/accès";
+                    json = "./donnees/VGASTAnalogique.json";
+                    dataAnnotation = [];
+                    nomFichierExport = "VGASTAnalogique";
+                    break;
+                case "VGASTNumerique":
+                    titre = "Accès au service téléphonique fixe pour les lignes numériques";
+                    minimumDate = "2016-03-01";
+                    maximumDate = "2020-12-31";
+                    ordonnee = "€/accès";
+                    json = "./donnees/VGASTNumerique.json";
+                    dataAnnotation = [];
+                    nomFichierExport = "VGASTNumerique";
+                    break;
+                case "RoamingGrosVoix":
                     titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
                     minimumDate = "2007-08-30";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/min";
-                    json = "./donnees/RoamingVoix.json";
+                    json = "./donnees/RoamingGrosVoix.json";
                     dataAnnotation = [{
                         x: "2017-06-15",
                         y: 3.2,
@@ -235,14 +253,14 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
                     }];
-                    nomFichierExport = "RoamingVoix";
+                    nomFichierExport = "RoamingGrosVoix";
                     break;
-                case "RoamingSMS":
+                case "RoamingGrosSMS":
                     titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
                     minimumDate = "2009-07-01";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/SMS";
-                    json = "./donnees/RoamingSMS.json";
+                    json = "./donnees/RoamingGrosSMS.json";
                     dataAnnotation = [{
                         x: "2017-06-15",
                         y: 1,
@@ -250,14 +268,14 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
                     }];
-                    nomFichierExport = "RoamingSMS";
+                    nomFichierExport = "RoamingGrosSMS";
                     break;
-                case "RoamingData":
+                case "RoamingGrosData":
                     titre = "Tarif de gros des données en itinérance dans l'Union européenne";
                     minimumDate = "2012-07-01";
                     maximumDate = "2032-06-30";
                     ordonnee = "€/Mo";
-                    json = "./donnees/RoamingData.json";
+                    json = "./donnees/RoamingGrosData.json";
                     dataAnnotation = [{
                         x: "2017-06-15",
                         y: 7.7,
@@ -265,7 +283,52 @@ function dataTypeDisplay(display, data) {
                         yAjuste: -100,
                         texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
                     }];
-                    nomFichierExport = "RoamingData";
+                    nomFichierExport = "RoamingGrosData";
+                    break;
+                case "RoamingDetailVoix":
+                    titre = "Tarif de détail d'un appel en itinérance dans l'Union européenne";
+                    minimumDate = "2007-08-30";
+                    maximumDate = "2032-06-30";
+                    ordonnee = "c€/min";
+                    json = "./donnees/RoamingDetailVoix.json";
+                    dataAnnotation = [{
+                        x: "2017-06-15",
+                        y: 0,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                    }];
+                    nomFichierExport = "RoamingDetailVoix";
+                    break;
+                case "RoamingDetailSMS":
+                    titre = "Tarif de détail d'un SMS en itinérance dans l'Union européenne";
+                    minimumDate = "2009-07-01";
+                    maximumDate = "2032-06-30";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/RoamingDetailSMS.json";
+                    dataAnnotation = [{
+                        x: "2017-06-15",
+                        y: 0,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                    }];
+                    nomFichierExport = "RoamingDetailSMS";
+                    break;
+                case "RoamingDetailData":
+                    titre = "Tarif de détail des données en itinérance dans l'Union européenne";
+                    minimumDate = "2012-07-01";
+                    maximumDate = "2032-06-30";
+                    ordonnee = "c€/Mo";
+                    json = "./donnees/RoamingDetailData.json";
+                    dataAnnotation = [{
+                        x: "2017-06-15",
+                        y: 0,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                    }];
+                    nomFichierExport = "RoamingDetailData";
                     break;
                 case "IntraUEVoix":
                     titre = "Tarif de détail d'un appel dans l'Union européenne";
@@ -349,20 +412,45 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/min";
                     json = "./donnees/DASVAFixe.json";
                     break;
-                case "RoamingVoix":
+                case "VGASTAnalogique":
+                    titre = "Accès au service téléphonique fixe pour les lignes analogiques";
+                    ordonnee = "€/accès";
+                    json = "./donnees/VGASTAnalogique.json";
+                    break;
+                case "VGASTNumerique":
+                    titre = "Accès au service téléphonique fixe pour les lignes numériques";
+                    ordonnee = "€/accès";
+                    json = "./donnees/VGASTNumerique.json";
+                    break;
+                case "RoamingGrosVoix":
                     titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
                     ordonnee = "c€/min";
-                    json = "./donnees/RoamingVoix.json";
+                    json = "./donnees/RoamingGrosVoix.json";
                     break;
-                case "RoamingSMS":
+                case "RoamingGrosSMS":
                     titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
                     ordonnee = "c€/SMS";
-                    json = "./donnees/RoamingSMS.json";
+                    json = "./donnees/RoamingGrosSMS.json";
                     break;
-                case "RoamingData":
+                case "RoamingGrosData":
                     titre = "Tarif de gros des données en itinérance dans l'Union européenne";
                     ordonnee = "€/Mo";
-                    json = "./donnees/RoamingData.json";
+                    json = "./donnees/RoamingGrosData.json";
+                    break;
+                case "RoamingDetailVoix":
+                    titre = "Tarif de détail d'un appel en itinérance dans l'Union européenne";
+                    ordonnee = "c€/min";
+                    json = "./donnees/RoamingDetailVoix.json";
+                    break;
+                case "RoamingDetailSMS":
+                    titre = "Tarif de détail d'un SMS en itinérance dans l'Union européenne";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/RoamingDetailSMS.json";
+                    break;
+                case "RoamingDetailData":
+                    titre = "Tarif de détail des données en itinérance dans l'Union européenne";
+                    ordonnee = "c€/Mo";
+                    json = "./donnees/RoamingDetailData.json";
                     break;
                 case "IntraUEVoix":
                     titre = "Tarif de détail d'un appel dans l'Union européenne";
@@ -468,14 +556,29 @@ document.querySelector("div.btn-group-data").addEventListener("change", function
             case "DASVAFixe":
                 data = "DASVAFixe";
                 break;
-            case "RoamingVoix":
-                data = "RoamingVoix";
+            case "VGASTAnalogique":
+                data = "VGASTAnalogique";
                 break;
-            case "RoamingSMS":
-                data = "RoamingSMS";
+            case "VGASTNumerique":
+                data = "VGASTNumerique";
                 break;
-            case "RoamingData":
-                data = "RoamingData";
+            case "RoamingGrosVoix":
+                data = "RoamingGrosVoix";
+                break;
+            case "RoamingGrosSMS":
+                data = "RoamingGrosSMS";
+                break;
+            case "RoamingGrosData":
+                data = "RoamingGrosData";
+                break;
+            case "RoamingDetailVoix":
+                data = "RoamingDetailVoix";
+                break;
+            case "RoamingDetailSMS":
+                data = "RoamingDetailSMS";
+                break;
+            case "RoamingDetailData":
+                data = "RoamingDetailData";
                 break;
             case "IntraUEVoix":
                 data = "IntraUEVoix";
@@ -604,6 +707,39 @@ function getColor(id) {
             break;
         case "SPM Telecom":
             return "#e6194B";
+            break;
+        case "Appel émis":
+            return "#e6194B";
+            break;
+        case "Appel reçu":
+            return "#3cb44b";
+            break;
+        case "Appel émis ou reçu":
+            return "#4363d8";
+            break;
+        case "SMS émis":
+            return "#e6194B";
+            break;
+        case "SMS reçu":
+            return "#3cb44b";
+            break;
+        case "SMS émis ou reçu":
+            return "#4363d8";
+            break;
+        case "Tarif mensuel VGAST":
+            return "#e6194B";
+            break;
+        case "Frais de création de ligne":
+            return "#3cb44b";
+            break;
+        case "Frais de mise en service VGAST (accès isolé)":
+            return "#42d4f4";
+            break;
+        case "Frais de mise en service VGAST (accès d'un groupement)":
+            return "#4363d8";
+            break;
+        case "Frais de mise en service VGAST (accès isolé ou d'un groupement)":
+            return "#4363d8";
             break;
         default:
             break;

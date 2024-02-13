@@ -1,0 +1,72 @@
+{
+  "VGASTAnalogique": [
+    {
+      "operateur": "Tarif mensuel VGAST",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/03/2016",
+          "tarif": 12.32
+        },
+        {
+          "dateEntreeVigueur": "01/01/2019",
+          "tarif": 12.32
+        },
+        {
+          "dateEntreeVigueur": "31/12/2020",
+          "tarif": 12.32
+        }
+      ]
+    },
+    {
+      "operateur": "Frais de création de ligne",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/03/2016",
+          "tarif": 56
+        },
+        {
+          "dateEntreeVigueur": "01/01/2019",
+          "tarif": 56
+        },
+        {
+          "dateEntreeVigueur": "31/12/2020",
+          "tarif": 56
+        }
+      ]
+    },
+    {
+      "operateur": "Frais de mise en service VGAST (accès isolé)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/03/2016",
+          "tarif": 4
+        },
+        {
+          "dateEntreeVigueur": "01/01/2019",
+          "tarif": 4
+        },
+        {
+          "dateEntreeVigueur": "31/12/2020",
+          "tarif": 4
+        }
+      ]
+    },
+    {
+      "operateur": "Frais de mise en service VGAST (accès d'un groupement)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/03/2016",
+          "tarif": 7
+        },
+        {
+          "dateEntreeVigueur": "01/01/2019",
+          "tarif": 7
+        },
+        {
+          "dateEntreeVigueur": "31/12/2020",
+          "tarif": 7
+        }
+      ]
+    }
+  ]
+}

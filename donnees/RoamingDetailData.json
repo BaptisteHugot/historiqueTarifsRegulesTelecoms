@@ -1,0 +1,33 @@
+{
+  "RoamingDetailData": [
+    {
+      "operateur": "Tous opérateurs",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/07/2012",
+          "tarif": 70
+        },
+        {
+          "dateEntreeVigueur": "01/07/2013",
+          "tarif": 45
+        },
+        {
+          "dateEntreeVigueur": "01/07/2014",
+          "tarif": 20
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "01/07/2022",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "30/06/2032",
+          "tarif": 0
+        }
+      ]
+    }
+  ]
+}
