@@ -1,7 +1,7 @@
 {
   "RoamingDetailSMS": [
     {
-      "operateur": "SMS émis",
+      "operateur": "SMS émis (itinérance ultramarine & intra-UE)",
       "donnees": [
         {
           "dateEntreeVigueur": "01/07/2009",
@@ -20,13 +20,13 @@
           "tarif": 6
         },
         {
-          "dateEntreeVigueur": "15/06/2017",
-          "tarif": 0
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 6
         }
       ]
     },
     {
-      "operateur": "SMS reçu",
+      "operateur": "SMS reçu (itinérance ultramarine & intra-UE)",
       "donnees": [
         {
           "dateEntreeVigueur": "01/07/2009",
@@ -37,13 +37,39 @@
           "tarif": 0
         },
         {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 0
+        }
+      ]
+    },
+        {
+      "operateur": "SMS émis (itinérance intra-UE)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 6
+        },
+        {
           "dateEntreeVigueur": "15/06/2017",
           "tarif": 0
         }
       ]
     },
     {
-      "operateur": "SMS émis ou reçu",
+      "operateur": "SMS émis (itinérance ultramarine) ou reçu (itinérance ultramarine & intra-UE)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "SMS émis ou reçu (itinérance ultramarine & intra-UE)",
       "donnees": [
         {
           "dateEntreeVigueur": "15/06/2017",

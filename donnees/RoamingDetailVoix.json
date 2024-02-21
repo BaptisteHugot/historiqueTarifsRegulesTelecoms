@@ -1,7 +1,7 @@
 {
   "RoamingDetailVoix": [
     {
-      "operateur": "Appel émis",
+      "operateur": "Appel émis (itinérance ultramarine & intra-UE)",
       "donnees": [
         {
           "dateEntreeVigueur": "30/08/2007",
@@ -36,13 +36,13 @@
           "tarif": 19
         },
         {
-          "dateEntreeVigueur": "15/06/2017",
-          "tarif": 0
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 19
         }
       ]
     },
     {
-      "operateur": "Appel reçu",
+      "operateur": "Appel reçu (itinérance ultramarine & intra-UE)",
       "donnees": [
         {
           "dateEntreeVigueur": "30/08/2007",
@@ -77,13 +77,52 @@
           "tarif": 5
         },
         {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 5
+        }
+      ]
+    },
+        {
+      "operateur": "Appel émis (itinérance intra-UE)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 19
+        },
+        {
           "dateEntreeVigueur": "15/06/2017",
           "tarif": 0
         }
       ]
     },
     {
-      "operateur": "Appel émis ou reçu",
+      "operateur": "Appel reçu (itinérance intra-UE)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 5
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "Appel émis ou reçu (itinérance ultramarine)",
+      "donnees": [
+        {
+          "dateEntreeVigueur": "01/05/2016",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "15/06/2017",
+          "tarif": 0
+        }
+      ]
+    },
+    {
+      "operateur": "Appel émis ou reçu (itinérance ultramarine & intra-UE)",
       "donnees": [
         {
           "dateEntreeVigueur": "15/06/2017",

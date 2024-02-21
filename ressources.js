@@ -241,12 +241,18 @@ function dataTypeDisplay(display, data) {
                     nomFichierExport = "VGASTNumerique";
                     break;
                 case "RoamingGrosVoix":
-                    titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
+                    titre = "Tarif de gros d'un appel en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2007-08-30";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/min";
                     json = "./donnees/RoamingGrosVoix.json";
                     dataAnnotation = [{
+                        x: "2016-05-01",
+                        y: 5,
+                        xAjuste: -100,
+                        yAjuste: 40,
+                        texte: ["Gratuité de l'itinérance", "ultramarine au détail"]
+                    }, {
                         x: "2017-06-15",
                         y: 3.2,
                         xAjuste: 20,
@@ -256,12 +262,18 @@ function dataTypeDisplay(display, data) {
                     nomFichierExport = "RoamingGrosVoix";
                     break;
                 case "RoamingGrosSMS":
-                    titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
+                    titre = "Tarif de gros d'un SMS en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2009-07-01";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/SMS";
                     json = "./donnees/RoamingGrosSMS.json";
                     dataAnnotation = [{
+                        x: "2016-05-01",
+                        y: 2,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "ultramarine au détail"]
+                    }, {
                         x: "2017-06-15",
                         y: 1,
                         xAjuste: 180,
@@ -271,7 +283,7 @@ function dataTypeDisplay(display, data) {
                     nomFichierExport = "RoamingGrosSMS";
                     break;
                 case "RoamingGrosData":
-                    titre = "Tarif de gros des données en itinérance dans l'Union européenne";
+                    titre = "Tarif de gros des données en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2012-07-01";
                     maximumDate = "2032-06-30";
                     ordonnee = "€/Mo";
@@ -281,17 +293,23 @@ function dataTypeDisplay(display, data) {
                         y: 7.7,
                         xAjuste: 180,
                         yAjuste: -100,
-                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                        texte: ["Gratuité de l'itinérance", "ultramarine & dans l'UE", "au détail"]
                     }];
                     nomFichierExport = "RoamingGrosData";
                     break;
                 case "RoamingDetailVoix":
-                    titre = "Tarif de détail d'un appel en itinérance dans l'Union européenne";
+                    titre = "Tarif de détail d'un appel en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2007-08-30";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/min";
                     json = "./donnees/RoamingDetailVoix.json";
                     dataAnnotation = [{
+                        x: "2016-05-01",
+                        y: 0,
+                        xAjuste: -100,
+                        yAjuste: -20,
+                        texte: ["Gratuité de l'itinérance", "ultramarine au détail"]
+                    }, {
                         x: "2017-06-15",
                         y: 0,
                         xAjuste: 180,
@@ -301,12 +319,18 @@ function dataTypeDisplay(display, data) {
                     nomFichierExport = "RoamingDetailVoix";
                     break;
                 case "RoamingDetailSMS":
-                    titre = "Tarif de détail d'un SMS en itinérance dans l'Union européenne";
+                    titre = "Tarif de détail d'un SMS en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2009-07-01";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/SMS";
                     json = "./donnees/RoamingDetailSMS.json";
                     dataAnnotation = [{
+                        x: "2016-05-01",
+                        y: 0,
+                        xAjuste: -100,
+                        yAjuste: -100,
+                        texte: ["Gratuité de l'itinérance", "ultramarine au détail"]
+                    }, {
                         x: "2017-06-15",
                         y: 0,
                         xAjuste: 180,
@@ -316,7 +340,7 @@ function dataTypeDisplay(display, data) {
                     nomFichierExport = "RoamingDetailSMS";
                     break;
                 case "RoamingDetailData":
-                    titre = "Tarif de détail des données en itinérance dans l'Union européenne";
+                    titre = "Tarif de détail des données en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2012-07-01";
                     maximumDate = "2032-06-30";
                     ordonnee = "c€/Mo";
@@ -326,7 +350,7 @@ function dataTypeDisplay(display, data) {
                         y: 0,
                         xAjuste: 180,
                         yAjuste: -100,
-                        texte: ["Gratuité de l'itinérance", "dans l'UE au détail"]
+                        texte: ["Gratuité de l'itinérance", "ultramarine & dans l'UE", "au détail"]
                     }];
                     nomFichierExport = "RoamingDetailData";
                     break;
@@ -423,32 +447,32 @@ function dataTypeDisplay(display, data) {
                     json = "./donnees/VGASTNumerique.json";
                     break;
                 case "RoamingGrosVoix":
-                    titre = "Tarif de gros d'un appel en itinérance dans l'Union européenne";
+                    titre = "Tarif de gros d'un appel en itinérance ultramarine ou dans l'Union européenne";
                     ordonnee = "c€/min";
                     json = "./donnees/RoamingGrosVoix.json";
                     break;
                 case "RoamingGrosSMS":
-                    titre = "Tarif de gros d'un SMS en itinérance dans l'Union européenne";
+                    titre = "Tarif de gros d'un SMS en itinérance ultramarine ou dans l'Union européenne";
                     ordonnee = "c€/SMS";
                     json = "./donnees/RoamingGrosSMS.json";
                     break;
                 case "RoamingGrosData":
-                    titre = "Tarif de gros des données en itinérance dans l'Union européenne";
+                    titre = "Tarif de gros des données en itinérance ultramarine ou dans l'Union européenne";
                     ordonnee = "€/Mo";
                     json = "./donnees/RoamingGrosData.json";
                     break;
                 case "RoamingDetailVoix":
-                    titre = "Tarif de détail d'un appel en itinérance dans l'Union européenne";
+                    titre = "Tarif de détail d'un appel en itinérance ultramarine ou dans l'Union européenne";
                     ordonnee = "c€/min";
                     json = "./donnees/RoamingDetailVoix.json";
                     break;
                 case "RoamingDetailSMS":
-                    titre = "Tarif de détail d'un SMS en itinérance dans l'Union européenne";
+                    titre = "Tarif de détail d'un SMS en itinérance ultramarine ou dans l'Union européenne";
                     ordonnee = "c€/SMS";
                     json = "./donnees/RoamingDetailSMS.json";
                     break;
                 case "RoamingDetailData":
-                    titre = "Tarif de détail des données en itinérance dans l'Union européenne";
+                    titre = "Tarif de détail des données en itinérance ultramarine ou dans l'Union européenne";
                     ordonnee = "c€/Mo";
                     json = "./donnees/RoamingDetailData.json";
                     break;
@@ -708,22 +732,37 @@ function getColor(id) {
         case "SPM Telecom":
             return "#e6194B";
             break;
-        case "Appel émis":
+        case "Appel émis (itinérance ultramarine & intra-UE)":
             return "#e6194B";
             break;
-        case "Appel reçu":
+        case "Appel reçu (itinérance ultramarine & intra-UE)":
             return "#3cb44b";
             break;
-        case "Appel émis ou reçu":
+        case "Appel émis (itinérance intra-UE)":
+            return "#42d4f4";
+            break;
+        case "Appel reçu (itinérance intra-UE)":
+            return "#911eb4";
+            break;        
+        case "Appel émis ou reçu (itinérance ultramarine)":
+            return "#f58231";
+            break;        
+        case "Appel émis ou reçu (itinérance ultramarine & intra-UE)":
             return "#4363d8";
             break;
-        case "SMS émis":
+        case "SMS émis (itinérance ultramarine & intra-UE)":
             return "#e6194B";
             break;
-        case "SMS reçu":
+        case "SMS reçu (itinérance ultramarine & intra-UE)":
             return "#3cb44b";
             break;
-        case "SMS émis ou reçu":
+        case "SMS émis (itinérance intra-UE)":
+            return "#42d4f4";
+            break;
+        case "SMS émis (itinérance ultramarine) ou reçu (itinérance ultramarine & intra-UE)":
+            return "#f58231";
+            break;
+        case "SMS émis ou reçu (itinérance ultramarine & intra-UE)":
             return "#4363d8";
             break;
         case "Tarif mensuel VGAST":
