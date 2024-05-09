@@ -357,19 +357,31 @@ function dataTypeDisplay(display, data) {
                 case "IntraUEVoix":
                     titre = "Tarif de détail d'un appel dans l'Union européenne";
                     minimumDate = "2009-06-15";
-                    maximumDate = "2024-12-31";
+                    maximumDate = "2032-06-30";
                     ordonnee = "c€/min";
                     json = "./donnees/IntraUEVoix.json";
-                    dataAnnotation = [];
+                    dataAnnotation = [{
+                        x: "2029-01-01",
+                        y: 0,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité des appels", "dans l'UE", "au détail"]
+                    }];                    
                     nomFichierExport = "IntraUEVoix";
                     break;
                 case "IntraUESMS":
                     titre = "Tarif de détail d'un SMS dans l'Union européenne";
                     minimumDate = "2019-06-15";
-                    maximumDate = "2024-12-31";
+                    maximumDate = "2032-06-30";
                     ordonnee = "c€/SMS";
                     json = "./donnees/IntraUESMS.json";
-                    dataAnnotation = [];
+                    dataAnnotation = [{
+                        x: "2029-01-01",
+                        y: 0,
+                        xAjuste: 180,
+                        yAjuste: -100,
+                        texte: ["Gratuité des SMS", "dans l'UE", "au détail"]
+                    }];                    
                     nomFichierExport = "IntraUESMS";
                     break;
                 default:

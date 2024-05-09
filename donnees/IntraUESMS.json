@@ -8,8 +8,12 @@
           "tarif": 6
         },
         {
-          "dateEntreeVigueur": "31/12/2024",
-          "tarif": 6
+          "dateEntreeVigueur": "01/01/2029",
+          "tarif": 0
+        },
+        {
+          "dateEntreeVigueur": "30/06/2032",
+          "tarif": 0
         }
       ]
     }
