@@ -35,6 +35,7 @@ function dataTypeDisplay(display, data) {
         if (data != "") {
             document.querySelector("button.resetZoomButton").style.visibility = "visible"; // On affiche le bouton de reset du zoom quand un graphe est affiché uniquement
             document.querySelector("button.exportGraphButton").style.visibility = "visible"; // On affiche le bouton d'export du graphique quand un graphe est affiché uniquement
+
             switch (data) {
                 case "TAVoixFixe":
                     titre = "Terminaison d'appel vocal fixe";
@@ -286,7 +287,7 @@ function dataTypeDisplay(display, data) {
                     titre = "Tarif de gros des données en itinérance ultramarine ou dans l'Union européenne";
                     minimumDate = "2012-07-01";
                     maximumDate = "2032-06-30";
-                    ordonnee = "€/Mo";
+                    ordonnee = "€/Go";
                     json = "./donnees/RoamingGrosData.json";
                     dataAnnotation = [{
                         x: "2017-06-15",
@@ -366,7 +367,7 @@ function dataTypeDisplay(display, data) {
                         xAjuste: 180,
                         yAjuste: -100,
                         texte: ["Gratuité des appels", "dans l'UE", "au détail"]
-                    }];                    
+                    }];
                     nomFichierExport = "IntraUEVoix";
                     break;
                 case "IntraUESMS":
@@ -381,13 +382,14 @@ function dataTypeDisplay(display, data) {
                         xAjuste: 180,
                         yAjuste: -100,
                         texte: ["Gratuité des SMS", "dans l'UE", "au détail"]
-                    }];                    
+                    }];
                     nomFichierExport = "IntraUESMS";
                     break;
                 default:
                     break;
             }
             showGraphe(minimumDate, maximumDate, ordonnee, json, dataAnnotation, titre);
+            showTitle(titre);
         }
     } else if (display === "tableau") {
         let chartStatus = Chart.getChart("chart");
@@ -395,116 +397,12 @@ function dataTypeDisplay(display, data) {
             chartStatus.destroy();
         }
         document.querySelector("button.resetZoomButton").style.visibility = "hidden"; // On n'affiche pas le bouton de reset du zoom
-        document.querySelector("button.exportGraphButton").style.visibility = "hidden"; // On n'affiche pas le bouton d'export du graphique        
+        document.querySelector("button.exportGraphButton").style.visibility = "hidden"; // On n'affiche pas le bouton d'export du graphique 
+
         if (data != "") {
-            switch (data) {
-                case "TAVoixFixe":
-                    titre = "Terminaison d'appel vocal fixe";
-                    ordonnee = "c€/min";
-                    json = "./donnees/TAVoixFixe.json";
-                    break;
-                case "TAVoixMobileMetropole":
-                    titre = "Terminaison d'appel vocal mobile en métropole";
-                    ordonnee = "c€/min";
-                    json = "./donnees/TAVoixMobileMetropole.json";
-                    break;
-                case "TAVoixMobileZAG":
-                    titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
-                    ordonnee = "c€/min";
-                    json = "./donnees/TAVoixMobileZAG.json";
-                    break;
-                case "TAVoixMobileZOI":
-                    titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
-                    ordonnee = "c€/min";
-                    json = "./donnees/TAVoixMobileZOI.json";
-                    break;
-                case "TAVoixMobileSPM":
-                    titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
-                    ordonnee = "c€/min";
-                    json = "./donnees/TAVoixMobileSPM.json";
-                    break;
-                case "TASMSMetropole":
-                    titre = "Terminaison d'appel SMS en métropole";
-                    ordonnee = "c€/SMS";
-                    json = "./donnees/TASMSMetropole.json";
-                    break;
-                case "TASMSZAG":
-                    titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
-                    ordonnee = "c€/SMS";
-                    json = "./donnees/TASMSZAG.json";
-                    break;
-                case "TASMSZOI":
-                    titre = "Terminaison d'appel SMS dans la zone Océan Indien";
-                    ordonnee = "c€/SMS";
-                    json = "./donnees/TASMSZOI.json";
-                    break;
-                case "DASdTFixe":
-                    titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
-                    ordonnee = "c€/min";
-                    json = "./donnees/DASdTFixe.json";
-                    break;
-                case "DASVAFixe":
-                    titre = "Départ d'appel vocal fixe vers les services à valeur ajoutée";
-                    ordonnee = "c€/min";
-                    json = "./donnees/DASVAFixe.json";
-                    break;
-                case "VGASTAnalogique":
-                    titre = "Accès au service téléphonique fixe pour les lignes analogiques";
-                    ordonnee = "€/accès";
-                    json = "./donnees/VGASTAnalogique.json";
-                    break;
-                case "VGASTNumerique":
-                    titre = "Accès au service téléphonique fixe pour les lignes numériques";
-                    ordonnee = "€/accès";
-                    json = "./donnees/VGASTNumerique.json";
-                    break;
-                case "RoamingGrosVoix":
-                    titre = "Tarif de gros d'un appel en itinérance ultramarine ou dans l'Union européenne";
-                    ordonnee = "c€/min";
-                    json = "./donnees/RoamingGrosVoix.json";
-                    break;
-                case "RoamingGrosSMS":
-                    titre = "Tarif de gros d'un SMS en itinérance ultramarine ou dans l'Union européenne";
-                    ordonnee = "c€/SMS";
-                    json = "./donnees/RoamingGrosSMS.json";
-                    break;
-                case "RoamingGrosData":
-                    titre = "Tarif de gros des données en itinérance ultramarine ou dans l'Union européenne";
-                    ordonnee = "€/Mo";
-                    json = "./donnees/RoamingGrosData.json";
-                    break;
-                case "RoamingDetailVoix":
-                    titre = "Tarif de détail d'un appel en itinérance ultramarine ou dans l'Union européenne";
-                    ordonnee = "c€/min";
-                    json = "./donnees/RoamingDetailVoix.json";
-                    break;
-                case "RoamingDetailSMS":
-                    titre = "Tarif de détail d'un SMS en itinérance ultramarine ou dans l'Union européenne";
-                    ordonnee = "c€/SMS";
-                    json = "./donnees/RoamingDetailSMS.json";
-                    break;
-                case "RoamingDetailData":
-                    titre = "Tarif de détail des données en itinérance ultramarine ou dans l'Union européenne";
-                    ordonnee = "c€/Mo";
-                    json = "./donnees/RoamingDetailData.json";
-                    break;
-                case "IntraUEVoix":
-                    titre = "Tarif de détail d'un appel dans l'Union européenne";
-                    ordonnee = "c€/min";
-                    json = "./donnees/IntraUEVoix.json";
-                    break;
-                case "IntraUESMS":
-                    titre = "Tarif de détail d'un SMS dans l'Union européenne";
-                    ordonnee = "c€/SMS";
-                    json = "./donnees/IntraUESMS.json";
-                    break;
-                default:
-                    break;
-            }
-            showTableau(json, ordonnee);
+            showTableau(data);
         }
     }
-    showTitle(titre);
 }
 
 // Gestionnaire du bouton permettant de remettre le zoom du graphique au niveau initial
@@ -645,30 +543,6 @@ function convertDateGraphe(date) {
 }
 
 /**
- * Fonction convertissant la date dans un format plus lisible pour un tableau
- * @param date La date dans le format initial
- * @return dateTable La date dans le format textuel
- */
-function convertDateTable(date) {
-    var jour = date.substring(0, 2);
-    var mois = date.substring(3, 5);
-    var annee = date.substring(6, 10);
-    var months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-
-    if (jour.substring(0, 1) == "0") {
-        jour = jour.substring(1, 2);
-    }
-
-    if (mois.substring(0, 1) == "0") {
-        mois = mois.substring(1, 2);
-    }
-
-    var ord = jour == "1" ? "<sup>er</sup>" : "";
-    var dateTable = jour + ord + " " + months[mois - 1] + "<br>" + annee;
-    return dateTable;
-}
-
-/**
  * Fonction permettant de gérer la couleur à afficher en fonction de l'id du fichier Json en entrée
  * @param id Le nom de l'id présent dans le fichier Json
  * @return La couleur que l'on souhaite voir affichée
@@ -755,10 +629,10 @@ function getColor(id) {
             break;
         case "Appel reçu (itinérance intra-UE)":
             return "#911eb4";
-            break;        
+            break;
         case "Appel émis ou reçu (itinérance ultramarine)":
             return "#f58231";
-            break;        
+            break;
         case "Appel émis ou reçu (itinérance ultramarine & intra-UE)":
             return "#4363d8";
             break;
@@ -999,90 +873,1793 @@ function showGraphe(dateMin, dateMax, ordonnee, jsonFile, dataAnnotation, titre)
 
 /**
  * Fonction d'affichage du tableau
- * @param json Le lien vers le fichier Json
- * @param ordonnee L'unité du tableau
+ * @param data Les données du tableau à afficher
  */
-function showTableau(json, ordonnee) {
-    var table = document.getElementById("table");
-    table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
-    var dataEntreeVigueur = []; // Tableau contenant la liste des dates d'entrée en vigueur
-    var dataOperateur = []; // Tableau contenant la liste des opérateurs
-    var dataJson = []; // Tableau contenant les éléments du fichier Json
+function showTableau(data) {
+    switch (data) {
+        case "TAVoixFixe":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel vocal fixe";
+            showTitle(titre);
 
-    fetch(json).then(response => { // On récupère le fichier Json
-        return response.json();
-    }).then(varData => { // On applique le traitement aux données du fichier Json
-        // On récupère la racine du fichier Json
-        var rootKey;
-        for (var prop in varData) {
-            rootKey = prop;
-        }
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
 
-        var nombreElements = Object.keys(varData[rootKey]).length; // On récupère le nombre d'éléments du fichier Json
-        // On boucle sur l'ensemble des éléments temporels de chaque id du Json
-        for (let pas = 0; pas < nombreElements; pas++) {
-            var tempData = []; // Tableau stockant temporairement toutes les données pour un opérateur
-            var nbValues = Object.keys(varData[rootKey][pas].donnees).length; // On récupère le nombre de données temporelles par type d'opérateur
-            for (let pasVal = 0; pasVal < nbValues - 1; pasVal++) { // On ne conserve pas la dernière valeur qui est "incluse" dans tous les cas ailleurs
-                tempData.push({ // On récupère chaque donnée du fichier Json
-                    operateur: varData[rootKey][pas].operateur,
-                    date: varData[rootKey][pas].donnees[pasVal].dateEntreeVigueur,
-                    tarif: varData[rootKey][pas].donnees[pasVal].tarif
-                });
-                dataEntreeVigueur.push(varData[rootKey][pas].donnees[pasVal].dateEntreeVigueur); // On ajoute les données dans un tableau qui servira à supprimer les dates en doublon
-                dataOperateur.push(varData[rootKey][pas].operateur); // On ajoute les données dans un tableau qui servira à supprimer les opérateurs en doublon
-            }
-            dataJson = dataJson.concat(tempData); // On concatène les données dans un tableau unique
-        }
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
 
-        var setDataEntreeVigueur = new Set(dataEntreeVigueur); // On supprime les dates en doublon
-        dataEntreeVigueur = Array.from(setDataEntreeVigueur).sort(function(a, b) { // On trie les dates dans l'ordre chronologique
-            a = a.split('/').reverse().join('');
-            b = b.split('/').reverse().join('');
-            return a.localeCompare(b);
-        });
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
 
-        dataOperateur = new Set(dataOperateur); // On supprime les opérateurs en doublon
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2021";
 
-        /// On créé le tableau
-        var tbl = document.createElement("table");
-        tbl.setAttribute("class", "table");
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
 
-        // On insère la première ligne avec les dates
-        var header = tbl.createTHead();
-        var tr_date = header.insertRow();
-        header.setAttribute("class", "th");
-
-        tr_date.insertCell().textContent = ordonnee;
-        dataEntreeVigueur.forEach((date) => {
-            tr_date.insertCell().textContent = date;
-        })
-
-        // On créé une ligne pour chaque opérateur
-        var body = tbl.createTBody();
-        dataOperateur.forEach((operateur) => {
             var tr_operateur = body.insertRow();
-            tr_operateur.insertCell().textContent = operateur;
-            for (let column = 1; column < tbl.rows[0].cells.length; column++) { // Pour chaque colonne du tableau HTML
-                let obj = dataJson.find(o => o.operateur === operateur && o.date === tbl.rows[0].cells[column].innerHTML); // On recherche dans le tableau la valeur correspondante
-                if (obj != undefined) { // Si un élément est trouvé, on l'affiche
-                    tr_operateur.insertCell().textContent = obj.tarif.toLocaleString(undefined, {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 4
-                    });
-                } else { // Si aucun élément n'est trouvé, on affiche un élément vide
-                    tr_operateur.insertCell();
-                }
-            }
-        })
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "France Telecom - Orange";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,45";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,425";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,15";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,08";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,079";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,078";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,077";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,07";
 
-        // On convertit le format de la date dans un format plus lisible dans un tableau
-        for (var j = 1; j < tbl.rows[0].cells.length; j++) {
-            tbl.rows[0].cells[j].innerHTML = convertDateTable(tbl.rows[0].cells[j].innerHTML);
-        }
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Opérateurs alternatifs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,9";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,5";
 
-        table.appendChild(tbl); // On ajoute le tableau dans la page HTML
-    });
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+
+        case "TAVoixMobileMetropole":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel vocal mobile en métropole";
+            showTitle(titre);
+
+            // On créé le tableau
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> mars<br>2002";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2003";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2004";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2005";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2007";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2021";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2023";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2024";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Orange & SFR";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "20,12";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "17,07";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "14,94";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "12,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "9,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "7,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "6,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "4,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "1,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "1";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "0,8";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,8";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,78";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,76";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,74";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,55";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,2";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Bouygues Telecom";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "14,79";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "11,24";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "9,24";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "8,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "6";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3,4";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Free Mobile & Full MVNO";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,6";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,1";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+            break;
+
+        case "TAVoixMobileZAG":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel vocal mobile dans la zone Antilles-Guyane";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.colSpan = 2;
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2004";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2005";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2007";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2021";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2023";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2024";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.colSpan = 2;
+            operateurCell.textContent = "Orange Caraïbe";
+            operateurCell.className = "firstColumn";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "25,69";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "20,56";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "16,44";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "13,16";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "11";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "8,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "5,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "2,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "1";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "1";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,78";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,76";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,74";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,55";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 7;
+            valueCell.textContent = "0,2";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.colSpan = 2;
+            operateurCell.textContent = "Digicel";
+            operateurCell.className = "firstColumn";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "16";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "12,2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "6,5";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.rowSpan = 2;
+            operateurCell.textContent = "Outremer Telecom";
+            operateurCell.className = "firstColumn";
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnTAMZAG";
+            operateurCell.innerHTML = "<i>Antilles</i>";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "22,9";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "15,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "9";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "5,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "2,8";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnTAMZAG";
+            operateurCell.innerHTML = "<i>Guyane</i>";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "19,2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "13,7";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.colSpan = 2;
+            operateurCell.textContent = "Dauphin Telecom";
+            operateurCell.className = "firstColumn";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "24,9";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "16,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "12";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "8";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "2,5";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.colSpan = 2;
+            operateurCell.textContent = "UTS Caraïbe";
+            operateurCell.className = "firstColumn";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "25,9";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "17,7";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.colSpan = 2;
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+            break;
+        case "TAVoixMobileZOI":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel vocal mobile dans la zone Océan Indien";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2004";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2005";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2007";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2021";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2023";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2024";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "SRR";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "24,56";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "19,65";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "15,72";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "12,58";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "10,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "8,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "5,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "1";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,78";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,76";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,74";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,55";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.textContent = "0,2";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Orange Réunion";
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "13";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "11";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "4,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "2,8";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Outremer Telecom";
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "27,2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "17,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "11";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "5,5";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+            var operateurCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "TAVoixMobileSPM":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel vocal mobile à Saint-Pierre-et-Miquelon";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> avril<br>2005";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juin<br>2022";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "SPM Telecom";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "24,67";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "19,212";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "16";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "14";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "12";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "10";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "10";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "0,08";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "TASMSMetropole":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel SMS en métropole";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/SMS";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2005";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> août<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Orange & SFR";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "4,3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "1,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "1";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Bouygues Telecom";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2,17";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "TASMSZAG":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel SMS dans la zone Antilles-Guyane";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/SMS";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "TASMSZOI":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel SMS dans la zone Océan Indien";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/SMS";
+
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "DASdTFixe":
+            // On affiche le titre du tableau
+            titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> mars<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2019";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2020";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "CAA";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,5734";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,5485";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,495";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,45";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,445";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,4895";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,5384";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "0,5923";
+            var valueCell = tr_operateur.insertCell();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "PRO";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,6584";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,6958";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "DASVAFixe":
+            // On affiche le titre du tableau
+            titre = "Départ d'appel vocal fixe verrs les services à valeur ajoutée";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2006";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2007";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2014";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2015";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "France Telecom - Orange";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,5734";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "0,5485";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,495";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,45";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "0,445";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,43";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,415";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.textContent = "0,4";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Opérateurs alternatifs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "1,11";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 3;
+            valueCell.textContent = "1,088";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,84";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,79";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,6681";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,5706";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,4731";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+            var valueCell = tr_operateur.insertCell();
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "VGASTAnalogique":
+            // On affiche le titre du tableau
+            titre = "Accès au service téléphonique fixe pour les lignes analogiques";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "€/accès";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> mars<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2019";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tarif mensuel VGAST";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "12,32";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Frais de création de ligne";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "56";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Frais de mise en service VGAST (accès isolé)";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "4";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Frais de mise en service VGAST (accès d'un groupement)";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "7";
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "VGASTNumerique":
+            // On affiche le titre du tableau
+            titre = "Accès au service téléphonique fixe pour les lignes numériques";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "€/accès";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> mars<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2019";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tarif mensuel VGAST";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "18,57";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Frais de création de ligne";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "97";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Frais de mise en service VGAST (accès isolé ou d'un groupement)";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "9";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "RoamingGrosVoix":
+            // On affiche le titre du tableau
+            titre = "Tarif de gros d'un appel en itinérance ultramarine ou dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "30 août<br>2007";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "30 août<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2014";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 juin<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2025";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "30";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "28";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "26";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "22";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "18";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "14";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "10";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3,2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2,2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,9";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "RoamingGrosSMS":
+            // On affiche le titre du tableau
+            titre = "Tarif de gros d'un SMS en itinérance ultramarine ou dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/SMS";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 juin<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2025";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,4";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0,3";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "RoamingGrosData":
+            // On affiche le titre du tableau
+            titre = "Tarif de gros des données en itinérance ultramarine ou dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "€/Go";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2014";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 juin 2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2018";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2019";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2020";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2021";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2022";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2023";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2024";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2025";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2026";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2027";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "250";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "150";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "50";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "7,7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "6";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "4,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2,5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,8";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,55";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1,1";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "RoamingDetailVoix":
+            // On affiche le titre du tableau
+            titre = "Tarif de détail d'un appel en itinérance ultramarine ou dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.colSpan = 2;
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "30 août<br>2007";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "30 août<br>2008";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "30 août<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2011";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2014";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> mai<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 juin<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2022";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.rowSpan = 2;
+            operateurCell.textContent = "Appel émis";
+            operateurCell.className = "firstColumn";
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnRoamVoice";
+            operateurCell.innerHTML = "<i>UE</i>";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "49";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "46";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "43";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "39";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "35";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "29";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "24";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "19";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "19";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 4;
+            valueCell.colSpan = 2;
+            valueCell.textContent = "0";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnRoamVoice";
+            operateurCell.innerHTML = "<i>Outremer</i>";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.rowSpan = 2;
+            operateurCell.textContent = "Appel reçu";
+            operateurCell.className = "firstColumn";
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnRoamVoice";
+            operateurCell.innerHTML = "<i>UE</i>";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "24";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "22";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "19";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "15";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "11";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "8";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "7";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "5";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "5";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnRoamVoice";
+            operateurCell.innerHTML = "<i>Outremer</i>";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "RoamingDetailSMS":
+            // On affiche le titre du tableau
+            titre = "Tarif de détail d'un SMS en itinérance ultramarine ou dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.colSpan = 2;
+            ordonneeCell.textContent = "c€/SMS";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2009";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2014";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> mai<br>2016";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 juin<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2022";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.rowSpan = 2;
+            operateurCell.textContent = "SMS émis";
+            operateurCell.className = "firstColumn";
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnRoamSMS";
+            operateurCell.innerHTML = "<i>UE</i>";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "11";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "9";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "8";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 2;
+            valueCell.textContent = "6";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "6";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.rowSpan = 3;
+            valueCell.colSpan = 2;
+            valueCell.textContent = "0";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "secondColumnRoamSMS";
+            operateurCell.innerHTML = "<i>Outremer</i>";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0";
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.colSpan = 2;
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "SMS reçu";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 5;
+            valueCell.textContent = "0";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "RoamingDetailData":
+            // On affiche le titre du tableau
+            titre = "Tarif de détail des données en itinérance ultramarine ou dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/Mo";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2013";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2014";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 juin<br>2017";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> juillet<br>2022";
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "70";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "45";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "20";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.colSpan = 2;
+            valueCell.textContent = "0";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "IntraUEVoix":
+            // On affiche le titre du tableau
+            titre = "Tarif de détail d'un appel dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/min";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 mai<br>2019";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2029";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "19";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+            break;
+        case "IntraUESMS":
+            // On affiche le titre du tableau
+            titre = "Tarif de détail d'un SMS dans l'Union européenne";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/SMS";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "15 mai<br>2019";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2029";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "6";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "0";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+            break;
+        default:
+            break;
+    }
 }
 
 // Plugin de Chart JS pour définir la couleur de fond de l'image qui sera exportée

@@ -28,6 +28,10 @@
           "tarif": 8.5
         },
         {
+          "dateEntreeVigueur": "01/01/2010",
+          "tarif": 5.5
+        },
+        {
           "dateEntreeVigueur": "01/01/2011",
           "tarif": 4
         },
