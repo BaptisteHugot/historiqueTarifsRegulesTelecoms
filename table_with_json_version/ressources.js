@@ -186,6 +186,15 @@ function dataTypeDisplay(display, data) {
                     dataAnnotation = [];
                     nomFichierExport = "TASMSZOI";
                     break;
+                case "TASMSSPM":
+                    titre = "Terminaison d'appel SMS à Saint-Pierre-et-Miquelon";
+                    minimumDate = "2010-10-01";
+                    maximumDate = "2013-09-30";
+                    ordonnee = "c€/SMS";
+                    json = "./../donnees/TASMSSPM.json";
+                    dataAnnotation = [];
+                    nomFichierExport = "TASMSSPM";
+                    break;
                 case "DASdTFixe":
                     titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
                     minimumDate = "2006-01-01";
@@ -438,6 +447,11 @@ function dataTypeDisplay(display, data) {
                     ordonnee = "c€/SMS";
                     json = "./../donnees/TASMSZOI.json";
                     break;
+                case "TASMSSPM":
+                    titre = "Terminaison d'appel SMS à Saint-Pierre-et-Miquelon";
+                    ordonnee = "c€/SMS";
+                    json = "./../donnees/TASMSSPM.json";
+                    break;
                 case "DASdTFixe":
                     titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
                     ordonnee = "c€/min";
@@ -585,6 +599,9 @@ document.querySelector("div.btn-group-data").addEventListener("change", function
                 break;
             case "TASMSZOI":
                 data = "TASMSZOI";
+                break;
+            case "TASMSSPM":
+                data = "TASMSSPM";
                 break;
             case "DASdTFixe":
                 data = "DASdTFixe";

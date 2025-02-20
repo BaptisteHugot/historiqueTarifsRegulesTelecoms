@@ -187,6 +187,15 @@ function dataTypeDisplay(display, data) {
                     dataAnnotation = [];
                     nomFichierExport = "TASMSZOI";
                     break;
+                case "TASMSSPM":
+                    titre = "Terminaison d'appel SMS à Saint-Pierre-et-Miquelon";
+                    minimumDate = "2010-10-01";
+                    maximumDate = "2013-09-30";
+                    ordonnee = "c€/SMS";
+                    json = "./donnees/TASMSSPM.json";
+                    dataAnnotation = [];
+                    nomFichierExport = "TASMSSPM";
+                    break;
                 case "DASdTFixe":
                     titre = "Départ d'appel vocal fixe pour la sélection du transporteur";
                     minimumDate = "2006-01-01";
@@ -483,6 +492,9 @@ document.querySelector("div.btn-group-data").addEventListener("change", function
                 break;
             case "TASMSZOI":
                 data = "TASMSZOI";
+                break;
+            case "TASMSSPM":
+                data = "TASMSSPM";
                 break;
             case "DASdTFixe":
                 data = "DASdTFixe";
@@ -1761,6 +1773,49 @@ function showTableau(data) {
             dateCell.innerHTML = "1<sup>er</sup> juillet<br>2011";
             var dateCell = tr_date.insertCell();
             dateCell.innerHTML = "1<sup>er</sup> juillet<br>2012";
+
+            // On créé une ligne pour chaque opérateur
+            var body = tbl.createTBody();
+
+            var tr_operateur = body.insertRow();
+            var operateurCell = tr_operateur.insertCell();
+            operateurCell.className = "firstColumn";
+            operateurCell.textContent = "Tous opérateurs";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "3";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "2";
+            var valueCell = tr_operateur.insertCell();
+            valueCell.textContent = "1";
+
+            table.appendChild(tbl); // On ajoute le tableau dans la page HTML
+
+            break;
+        case "TASMSSPM":
+            // On affiche le titre du tableau
+            titre = "Terminaison d'appel SMS à Saint-Pierre-et-Miquelon";
+            showTitle(titre);
+
+            var table = document.getElementById("table");
+            table.innerHTML = ""; // On supprime un éventuel tableau qui existerait
+            var tbl = document.createElement("table");
+            tbl.setAttribute("class", "table");
+
+            // On insère la première ligne avec les dates
+            var header = tbl.createTHead();
+            var tr_date = header.insertRow();
+            header.setAttribute("class", "th");
+
+            // On affiche l'ordonnée du tableau
+            var ordonneeCell = tr_date.insertCell();
+            ordonneeCell.textContent = "c€/SMS";
+
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> octobre<br>2010";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2012";
+            var dateCell = tr_date.insertCell();
+            dateCell.innerHTML = "1<sup>er</sup> janvier<br>2013";
 
             // On créé une ligne pour chaque opérateur
             var body = tbl.createTBody();
