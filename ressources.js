@@ -1617,7 +1617,7 @@ function showTableau(data) {
             valueCell.textContent = "10";
             var valueCell = tr_operateur.insertCell();
             valueCell.rowSpan = 2;
-            valueCell.textContent = "0,08";
+            valueCell.textContent = "0,8";
 
             var tr_operateur = body.insertRow();
             var operateurCell = tr_operateur.insertCell();
